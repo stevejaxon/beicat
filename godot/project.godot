@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 window/size/width=1280
 window/size/height=720
 window/size/resizable=false
+window/handheld/orientation="portrait"
 
 [layer_names]
 
