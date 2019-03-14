@@ -5,4 +5,5 @@ func _ready():
 	$FallDetector.connect("body_entered", self, "gameOver")
 
 func gameOver() -> void:
+	print("game over")
 	get_tree().change_scene("res://interface/game_over/GameOverScreen.tscn")

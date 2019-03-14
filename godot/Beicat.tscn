@@ -12,6 +12,7 @@ script = ExtResource( 1 )
 
 [node name="FallDetector" type="Area2D" parent="."]
 position = Vector2( 0, 1281 )
+collision_layer = 8
 
 [node name="ScreenBottom" type="CollisionShape2D" parent="FallDetector"]
 position = Vector2( 360, 0 )
