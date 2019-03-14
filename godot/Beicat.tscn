@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
+[ext_resource path="res://entities/platforms/Platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://character/Character.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 360, 1 )
@@ -14,4 +16,10 @@ position = Vector2( 0, 1281 )
 [node name="ScreenBottom" type="CollisionShape2D" parent="FallDetector"]
 position = Vector2( 360, 0 )
 shape = SubResource( 1 )
+
+[node name="Platform" parent="." instance=ExtResource( 2 )]
+position = Vector2( 358.866, 884.786 )
+
+[node name="Character" parent="." instance=ExtResource( 3 )]
+position = Vector2( 358.548, 809.433 )
 
