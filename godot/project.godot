@@ -24,12 +24,17 @@ config/name="Beicat"
 run/main_scene="res://Beicat.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+screen_side="*res://core/enums/screen_side.gd"
+
 [display]
 
 window/size/width=720
 window/size/height=1280
-window/size/resizable=false
 window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input]
 

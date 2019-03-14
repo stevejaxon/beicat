@@ -5,6 +5,7 @@ extents = Vector2( 50, 5 )
 
 [node name="Platform" type="RigidBody2D"]
 collision_layer = 2
+mode = 1
 gravity_scale = 0.0
 
 [node name="Sprite" type="Sprite" parent="."]
