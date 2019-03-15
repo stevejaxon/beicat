@@ -1,12 +1,12 @@
 extends KinematicBody2D
 
-signal scroll_level
+signal scroll_level (amount, scroll_speed)
 
 const GRAVITY: float = 9.8
 const SCREEN_WIDTH: int = 720
 
 # The jump height is negative because down on the Y axis in games in positive, therefore, up on the y axis is negative
-export var jump_height = -10
+export var jump_height = -8
 export var horizontal_speed = 5
 export var max_horizontal_speed = 5
 
@@ -29,7 +29,7 @@ func _input(event):
 
 func landed_on(body: Area2D) -> void:
 	velocity.y = jump_height
-	emit_signal("scroll_level", abs(jump_height) * 10, 1 )
+	emit_signal("scroll_level", abs(jump_height) * 20, 1 )
 
 func playerLeftScreen(area: Area2D, screenSide) -> void:
 	if screenSide == screen_side.LEFT:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/platforms/Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/platforms/PlatformFactory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/platforms/Platform.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 360, 1 )
@@ -45,35 +46,70 @@ shape = SubResource( 2 )
 [node name="Character" parent="." instance=ExtResource( 2 )]
 position = Vector2( 107.709, 1108.15 )
 
+[node name="PlatformFactories" type="Node" parent="."]
+
+[node name="PlatfromFactory" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 75.9936, -31.3475 )
+
+[node name="PlatfromFactory6" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 139.164, -87.393 )
+
+[node name="PlatfromFactory2" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 206.133, -30.8725 )
+
+[node name="PlatfromFactory7" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 266.928, -85.0182 )
+
+[node name="PlatfromFactory3" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 333.898, -29.9226 )
+
+[node name="PlatfromFactory8" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 385.194, -84.0683 )
+
+[node name="PlatfromFactory4" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 459.288, -28.4977 )
+
+[node name="PlatfromFactory9" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 511.059, -84.5432 )
+
+[node name="PlatfromFactory10" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 646.898, -81.2185 )
+
+[node name="PlatfromFactory5" parent="PlatformFactories" instance=ExtResource( 3 )]
+position = Vector2( 594.177, -28.0227 )
+
 [node name="Platforms" type="Node" parent="."]
 
-[node name="Platform2" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform2" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 283.927, 1040.91 )
 
-[node name="Platform3" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform3" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 506.664, 927.461 )
 
-[node name="Platform4" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform4" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 121.558, 862.929 )
 
-[node name="Platform5" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform5" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 308.907, 684.948 )
 
-[node name="Platform6" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform6" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 547.256, 631.866 )
 
-[node name="Platform7" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform7" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 97.6192, 508.008 )
 
-[node name="Platform8" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform8" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 373.438, 369.578 )
 
-[node name="Platform9" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform9" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 594.093, 199.923 )
 
-[node name="Platform10" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform10" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 223.559, 175.984 )
 
-[node name="Platform" parent="Platforms" instance=ExtResource( 3 )]
+[node name="Platform11" parent="Platforms" instance=ExtResource( 4 )]
+position = Vector2( 381.247, 61.5186 )
+
+[node name="Platform" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 106.987, 1200.16 )
 

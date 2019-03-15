@@ -3,6 +3,8 @@ extends Area2D
 var scroll_distance = 0
 var scroll_velocity = 0
 
+class_name Platform
+
 func _process(delta):
 	if scroll_distance > 0:
 		var move_this_tick = scroll_distance * delta * scroll_velocity
@@ -14,4 +16,5 @@ func scrollDown(distance: int, velocity: int) -> void:
 	scroll_velocity = velocity
 
 func leftScreen(area: Area2D) -> void:
-	free()
+	#free()
+	pass

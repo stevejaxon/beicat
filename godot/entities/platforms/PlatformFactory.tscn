@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://entities/platforms/PlatformFactory.gd" type="Script" id=1]
+
+[node name="PlatfromFactory" type="Position2D"]
+position = Vector2( 133.464, -31.3475 )
+script = ExtResource( 1 )
+
