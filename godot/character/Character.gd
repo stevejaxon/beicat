@@ -4,6 +4,8 @@ signal scroll_level (amount, scroll_speed)
 
 const GRAVITY: float = 9.8
 const SCREEN_WIDTH: int = 720
+const SCROLL_TO_Y_POSITION = 1260
+const REGULAR_JUMP_SCROLL_SPEED = 3
 onready var PLATFORM_COLLISION_DETECTOR: CollisionShape2D = get_node("PlatformDetection/CollisionShape2D")
 
 # The jump height is negative because down on the Y axis in games in positive, therefore, up on the y axis is negative
@@ -34,7 +36,9 @@ func _input(event):
 
 func landed_on(body: Area2D) -> void:
 	velocity.y = jump_height
-	emit_signal("scroll_level", abs(jump_height) * 20, 1 )
+	var platform_y_position = body.position.y
+	var scroll_distance = SCROLL_TO_Y_POSITION - platform_y_position
+	emit_signal("scroll_level", scroll_distance, REGULAR_JUMP_SCROLL_SPEED )
 
 func playerLeftScreen(area: Area2D, screenSide) -> void:
 	if screenSide == screen_side.LEFT:
