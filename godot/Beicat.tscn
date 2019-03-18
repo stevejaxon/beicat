@@ -46,7 +46,6 @@ shape = SubResource( 2 )
 position = Vector2( 107.709, 1108.15 )
 
 [node name="Platforms" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Platform2" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 283.927, 1040.91 )
@@ -73,7 +72,40 @@ position = Vector2( 373.438, 369.578 )
 position = Vector2( 589.343, 184.249 )
 
 [node name="Platform10" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 222.609, 158.41 )
+position = Vector2( 165.152, 129.682 )
+
+[node name="Platform11" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 495.528, -52.6323 )
+
+[node name="Platform12" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 83.3872, -142.132 )
+
+[node name="Platform13" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 305.479, -385.218 )
+
+[node name="Platform14" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 299.954, -643.773 )
+
+[node name="Platform15" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 661.268, -689.075 )
+
+[node name="Platform16" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 183.936, -875.809 )
+
+[node name="Platform17" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 656.849, -1085.75 )
+
+[node name="Platform18" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 132.004, -1274.69 )
+
+[node name="Platform19" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 666.793, -1387.39 )
+
+[node name="Platform20" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 82.2823, -1850.36 )
+
+[node name="Platform21" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 360.726, -1606.17 )
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 106.987, 1200.16 )
