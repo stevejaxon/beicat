@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@ extents = Vector2( 360, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 1, 640 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 360, 300 )
 
 [node name="Beicat" type="Node2D"]
 script = ExtResource( 1 )
@@ -50,6 +53,7 @@ position = Vector2( 107.709, 1108.15 )
 
 [node name="PlatfromFactory" parent="PlatformFactories" instance=ExtResource( 3 )]
 position = Vector2( 99.2668, -15.6738 )
+enabled = false
 
 [node name="PlatfromFactory6" parent="PlatformFactories" instance=ExtResource( 3 )]
 position = Vector2( 162.437, -71.2443 )
@@ -57,6 +61,7 @@ enabled = false
 
 [node name="PlatfromFactory2" parent="PlatformFactories" instance=ExtResource( 3 )]
 position = Vector2( 229.406, -14.7238 )
+enabled = false
 
 [node name="PlatfromFactory7" parent="PlatformFactories" instance=ExtResource( 3 )]
 position = Vector2( 290.201, -68.8695 )
@@ -64,6 +69,7 @@ enabled = false
 
 [node name="PlatfromFactory3" parent="PlatformFactories" instance=ExtResource( 3 )]
 position = Vector2( 357.171, -13.7739 )
+enabled = false
 
 [node name="PlatfromFactory8" parent="PlatformFactories" instance=ExtResource( 3 )]
 position = Vector2( 408.467, -67.9196 )
@@ -71,6 +77,7 @@ enabled = false
 
 [node name="PlatfromFactory4" parent="PlatformFactories" instance=ExtResource( 3 )]
 position = Vector2( 482.561, -12.349 )
+enabled = false
 
 [node name="PlatfromFactory9" parent="PlatformFactories" instance=ExtResource( 3 )]
 position = Vector2( 534.332, -68.3945 )
@@ -82,8 +89,10 @@ enabled = false
 
 [node name="PlatfromFactory5" parent="PlatformFactories" instance=ExtResource( 3 )]
 position = Vector2( 617.45, -11.874 )
+enabled = false
 
 [node name="Platforms" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Platform2" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 283.927, 1040.91 )
@@ -114,4 +123,12 @@ position = Vector2( 222.609, 158.41 )
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 106.987, 1200.16 )
+
+[node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 360, 720 )
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
 
