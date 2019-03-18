@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/platforms/PlatformFactory.tscn" type="PackedScene" id=3]
-[ext_resource path="res://entities/platforms/Platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/platforms/Platform.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 360, 1 )
@@ -46,79 +45,36 @@ shape = SubResource( 2 )
 [node name="Character" parent="." instance=ExtResource( 2 )]
 position = Vector2( 107.709, 1108.15 )
 
-[node name="PlatformFactories" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="PlatfromFactory" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 99.2668, -15.6738 )
-enabled = false
-
-[node name="PlatfromFactory6" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 162.437, -71.2443 )
-enabled = false
-
-[node name="PlatfromFactory2" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 229.406, -14.7238 )
-enabled = false
-
-[node name="PlatfromFactory7" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 290.201, -68.8695 )
-enabled = false
-
-[node name="PlatfromFactory3" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 357.171, -13.7739 )
-enabled = false
-
-[node name="PlatfromFactory8" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 408.467, -67.9196 )
-enabled = false
-
-[node name="PlatfromFactory4" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 482.561, -12.349 )
-enabled = false
-
-[node name="PlatfromFactory9" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 534.332, -68.3945 )
-enabled = false
-
-[node name="PlatfromFactory10" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 670.171, -65.0698 )
-enabled = false
-
-[node name="PlatfromFactory5" parent="PlatformFactories" instance=ExtResource( 3 )]
-position = Vector2( 617.45, -11.874 )
-enabled = false
-
 [node name="Platforms" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Platform2" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform2" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 283.927, 1040.91 )
 
-[node name="Platform3" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform3" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 506.664, 927.461 )
 
-[node name="Platform4" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform4" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 121.558, 862.929 )
 
-[node name="Platform5" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform5" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 308.907, 684.948 )
 
-[node name="Platform6" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform6" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 547.256, 631.866 )
 
-[node name="Platform7" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform7" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 97.6192, 508.008 )
 
-[node name="Platform8" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform8" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 373.438, 369.578 )
 
-[node name="Platform9" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform9" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 589.343, 184.249 )
 
-[node name="Platform10" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform10" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 222.609, 158.41 )
 
-[node name="Platform" parent="Platforms" instance=ExtResource( 4 )]
+[node name="Platform" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 106.987, 1200.16 )
 
