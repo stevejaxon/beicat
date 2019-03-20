@@ -21,6 +21,7 @@ func _ready():
 	assert($PlatformDetection.connect("area_entered", self, "landed_on") == 0)
 
 func _process(delta):
+	var pointer = 	get_local_mouse_position()
 	velocity.y = velocity.y + (GRAVITY * delta)
 	if not PLATFORM_COLLISION_DETECTOR.disabled and velocity.y < 0:
 		_preventInteractingWithPlatforms()
