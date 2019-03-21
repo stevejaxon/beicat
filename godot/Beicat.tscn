@@ -44,7 +44,7 @@ position = Vector2( 0, 640 )
 shape = SubResource( 2 )
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
-position = Vector2( 107.709, 1108.15 )
+position = Vector2( 112.599, 955.583 )
 
 [node name="Platforms" type="Node" parent="."]
 editor/display_folded = true
