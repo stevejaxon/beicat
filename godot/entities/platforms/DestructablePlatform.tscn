@@ -8,5 +8,4 @@
 script = ExtResource( 2 )
 
 [node name="platformDiamondExplosion" parent="." index="2" instance=ExtResource( 3 )]
-local_coords = true
 

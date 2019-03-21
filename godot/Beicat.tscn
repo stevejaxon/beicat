@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/platforms/Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/platforms/DestructableRubyPlatform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/parallax_bg_1.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -47,75 +47,69 @@ shape = SubResource( 2 )
 position = Vector2( 112.599, 955.583 )
 
 [node name="Platforms" type="Node" parent="."]
-editor/display_folded = true
 
-[node name="Platform2" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 283.927, 1040.91 )
+[node name="DestructableRubyPlatform" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 108.548, 1228.57 )
 
-[node name="Platform3" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 506.664, 927.461 )
+[node name="DestructableRubyPlatform6" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 286.172, 1227.33 )
 
-[node name="Platform4" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 121.558, 862.929 )
+[node name="DestructableRubyPlatform7" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 463.797, 1227.33 )
 
-[node name="Platform5" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 308.907, 684.948 )
+[node name="DestructableRubyPlatform8" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 286.172, 996.669 )
 
-[node name="Platform6" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 547.256, 631.866 )
+[node name="DestructableRubyPlatform2" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 583.446, 738.868 )
 
-[node name="Platform7" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 97.6192, 508.008 )
+[node name="DestructableRubyPlatform3" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 107.315, 593.314 )
 
-[node name="Platform8" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 373.438, 369.578 )
+[node name="DestructableRubyPlatform4" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 608.656, 263.618 )
 
-[node name="Platform9" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 589.343, 184.249 )
+[node name="DestructableRubyPlatform5" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 351.174, 17.1946 )
 
-[node name="Platform10" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 165.152, 129.682 )
+[node name="DestructableRubyPlatform9" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 650.055, -220.797 )
 
-[node name="Platform11" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 495.528, -52.6323 )
+[node name="DestructableRubyPlatform10" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 118.416, -243 )
 
-[node name="Platform12" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 83.3872, -142.132 )
+[node name="DestructableRubyPlatform11" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 278.771, -524.238 )
 
-[node name="Platform13" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 305.479, -385.218 )
+[node name="DestructableRubyPlatform12" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 60.4417, -790.675 )
 
-[node name="Platform14" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 299.954, -643.773 )
+[node name="DestructableRubyPlatform13" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 529.172, -926.36 )
 
-[node name="Platform15" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 661.268, -689.075 )
+[node name="DestructableRubyPlatform14" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 191.193, -1202.66 )
 
-[node name="Platform16" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 183.936, -875.809 )
+[node name="DestructableRubyPlatform15" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 659.923, -1396.32 )
 
-[node name="Platform17" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 656.849, -1085.75 )
+[node name="DestructableRubyPlatform16" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 659.923, -1650.07 )
 
-[node name="Platform18" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 132.004, -1274.69 )
+[node name="DestructableRubyPlatform17" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 654.407, -1900.13 )
 
-[node name="Platform19" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 666.793, -1387.39 )
+[node name="DestructableRubyPlatform18" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 659.923, -2131.81 )
 
-[node name="Platform20" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 82.2823, -1850.36 )
-
-[node name="Platform21" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 360.726, -1606.17 )
-
-[node name="Platform" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 106.987, 1200.16 )
+[node name="DestructableRubyPlatform19" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 66.0184, -2175.94 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2( 0, 1280 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 4 )
