@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal scroll_level (amount, scroll_speed)
 
-const GRAVITY: float = 300.0
+const GRAVITY: float = 250.0
 const SCREEN_WIDTH: int = 720
 const SCROLL_TO_Y_POSITION = 1260
 const REGULAR_JUMP_SCROLL_SPEED = 3
@@ -21,7 +21,6 @@ func _ready():
 	_enableInteractingWithPlatforms()
 
 func _process(delta):
-	print(delta)
 	var amount_jumped = 0
 	var gravity_to_apply = GRAVITY * delta
 	if remaining_jump_height < 0:
@@ -36,8 +35,9 @@ func _process(delta):
 
 	position = Vector2(clamp(pointer_position.x, 0, SCREEN_WIDTH), new_vertical_position)
 
-func landed_on(body: Area2D) -> void:
+func landed_on(body: Platform) -> void:
 	remaining_jump_height = jump_height
+	body.land()
 	var platform_y_position = body.position.y
 	var scroll_distance = SCROLL_TO_Y_POSITION - platform_y_position
 	emit_signal("scroll_level", scroll_distance, REGULAR_JUMP_SCROLL_SPEED )
