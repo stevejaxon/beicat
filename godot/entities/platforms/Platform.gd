@@ -18,3 +18,6 @@ func scrollDown(distance: int, velocity: int) -> void:
 func leftScreen(area: Area2D) -> void:
 	#free()
 	pass
+
+func land() -> void:
+	pass
