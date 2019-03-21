@@ -2,41 +2,42 @@ extends KinematicBody2D
 
 signal scroll_level (amount, scroll_speed)
 
-const GRAVITY: float = 9.8
+const GRAVITY: float = 300.0
 const SCREEN_WIDTH: int = 720
 const SCROLL_TO_Y_POSITION = 1260
 const REGULAR_JUMP_SCROLL_SPEED = 3
 onready var PLATFORM_COLLISION_DETECTOR: CollisionShape2D = get_node("PlatformDetection/CollisionShape2D")
 
 # The jump height is negative because down on the Y axis in games in positive, therefore, up on the y axis is negative
-export var jump_height = -8
+export var jump_height = -50
 export var horizontal_speed = 5
-export var max_horizontal_speed = 5
 
 class_name Character
 
-var velocity = Vector2(0,0)
+var remaining_jump_height = 0
 
 func _ready():
 	assert($PlatformDetection.connect("area_entered", self, "landed_on") == 0)
+	_enableInteractingWithPlatforms()
 
 func _process(delta):
-	var pointer = 	get_local_mouse_position()
-	velocity.y = velocity.y + (GRAVITY * delta)
-	if not PLATFORM_COLLISION_DETECTOR.disabled and velocity.y < 0:
+	print(delta)
+	var amount_jumped = 0
+	var gravity_to_apply = GRAVITY * delta
+	if remaining_jump_height < 0:
+		amount_jumped = remaining_jump_height + delta
+		remaining_jump_height = amount_jumped + gravity_to_apply
+	var new_vertical_position = position.y + gravity_to_apply + amount_jumped
+	var pointer_position = 	get_global_mouse_position()		
+	if not PLATFORM_COLLISION_DETECTOR.disabled and amount_jumped < 0:
 		_preventInteractingWithPlatforms()
-	elif PLATFORM_COLLISION_DETECTOR.disabled and velocity.y > 0:
+	elif PLATFORM_COLLISION_DETECTOR.disabled and amount_jumped >= 0:
 		_enableInteractingWithPlatforms()
-	move_and_collide(velocity)
 
-func _input(event):
-	if event.is_action_pressed("move_right"):
-		velocity.x = min(velocity.x + horizontal_speed, max_horizontal_speed)
-	elif event.is_action_pressed("move_left"):
-		velocity.x = max(velocity.x + -horizontal_speed, -max_horizontal_speed)
+	position = Vector2(clamp(pointer_position.x, 0, SCREEN_WIDTH), new_vertical_position)
 
 func landed_on(body: Area2D) -> void:
-	velocity.y = jump_height
+	remaining_jump_height = jump_height
 	var platform_y_position = body.position.y
 	var scroll_distance = SCROLL_TO_Y_POSITION - platform_y_position
 	emit_signal("scroll_level", scroll_distance, REGULAR_JUMP_SCROLL_SPEED )
