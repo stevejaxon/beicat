@@ -44,7 +44,6 @@ position = Vector2( 0, 640 )
 shape = SubResource( 2 )
 
 [node name="Platforms" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="DestructableRubyPlatform" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 108.548, 1228.57 )
@@ -63,63 +62,63 @@ position = Vector2( 286.172, 996.669 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform2" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 583.446, 738.868 )
+position = Vector2( 344.048, 777.658 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform3" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 107.315, 593.314 )
+position = Vector2( 107.315, 595.75 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform4" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 608.656, 263.618 )
+position = Vector2( 261.612, 389.961 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform5" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 351.174, 17.1946 )
+position = Vector2( 479.116, 276.278 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform9" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 650.055, -220.797 )
+position = Vector2( 675.644, 132.644 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform10" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 118.416, -243 )
+position = Vector2( 83.232, -4.70694 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform11" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 278.771, -524.238 )
+position = Vector2( 254.782, -140.411 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform12" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 60.4417, -790.675 )
+position = Vector2( 455.464, -243.72 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform13" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 529.172, -926.36 )
+position = Vector2( 634.725, -349.019 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform14" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 191.193, -1202.66 )
+position = Vector2( 72.846, -495.782 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform15" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 659.923, -1396.32 )
+position = Vector2( 276.096, -713.431 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform16" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 659.923, -1650.07 )
+position = Vector2( 288.89, -928.791 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform17" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 654.407, -1900.13 )
+position = Vector2( 302.566, -1121.28 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform18" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 659.923, -2131.81 )
+position = Vector2( 320.876, -1319.38 )
 collision_layer = 2
 
 [node name="DestructableRubyPlatform19" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 66.0184, -2175.94 )
+position = Vector2( 66.0184, -1465.86 )
 collision_layer = 2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
