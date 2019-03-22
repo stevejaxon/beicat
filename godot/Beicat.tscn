@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
-[ext_resource path="res://character/Character.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/platforms/DestructableRubyPlatform.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/parallax_bg_1.png" type="Texture" id=4]
+[ext_resource path="res://entities/platforms/DestructableRubyPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/parallax_bg_1.png" type="Texture" id=3]
+[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 360, 1 )
@@ -43,67 +43,84 @@ collision_mask = 0
 position = Vector2( 0, 640 )
 shape = SubResource( 2 )
 
-[node name="Character" parent="." instance=ExtResource( 2 )]
-position = Vector2( 112.599, 955.583 )
-
 [node name="Platforms" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="DestructableRubyPlatform" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 108.548, 1228.57 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform6" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform6" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 286.172, 1227.33 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform7" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform7" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 463.797, 1227.33 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform8" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform8" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 286.172, 996.669 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform2" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform2" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 583.446, 738.868 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform3" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform3" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 107.315, 593.314 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform4" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform4" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 608.656, 263.618 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform5" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform5" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 351.174, 17.1946 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform9" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform9" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 650.055, -220.797 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform10" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform10" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 118.416, -243 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform11" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform11" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 278.771, -524.238 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform12" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform12" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 60.4417, -790.675 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform13" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform13" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 529.172, -926.36 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform14" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform14" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 191.193, -1202.66 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform15" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform15" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 659.923, -1396.32 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform16" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform16" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 659.923, -1650.07 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform17" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform17" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 654.407, -1900.13 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform18" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform18" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 659.923, -2131.81 )
+collision_layer = 2
 
-[node name="DestructableRubyPlatform19" parent="Platforms" instance=ExtResource( 3 )]
+[node name="DestructableRubyPlatform19" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 66.0184, -2175.94 )
+collision_layer = 2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2( 0, 1280 )
@@ -112,8 +129,11 @@ scroll_offset = Vector2( 0, 1280 )
 visible = false
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 720, 1280, 720, 5120 )
+
+[node name="Cooper" parent="." instance=ExtResource( 4 )]
+position = Vector2( 104.6, 985.446 )
 

@@ -4,6 +4,7 @@ signal scroll_level (amount, scroll_speed)
 
 const GRAVITY: float = 250.0
 const SCREEN_WIDTH: int = 720
+const SCREEN_MID_POINT: int = SCREEN_WIDTH / 2
 const SCROLL_TO_Y_POSITION = 1260
 const REGULAR_JUMP_SCROLL_SPEED = 3
 onready var PLATFORM_COLLISION_DETECTOR: CollisionShape2D = get_node("PlatformDetection/CollisionShape2D")
@@ -32,12 +33,19 @@ func _process(delta):
 		_preventInteractingWithPlatforms()
 	elif PLATFORM_COLLISION_DETECTOR.disabled and amount_jumped >= 0:
 		_enableInteractingWithPlatforms()
+		$Sprite.play("falling")
+		
+	if pointer_position.x < SCREEN_MID_POINT:
+		$Sprite.flip_h = true
+	elif $Sprite.flip_h:
+		$Sprite.flip_h = false
 
 	position = Vector2(clamp(pointer_position.x, 0, SCREEN_WIDTH), new_vertical_position)
 
 func landed_on(body: Platform) -> void:
 	remaining_jump_height = jump_height
 	body.land()
+	$Sprite.play("jumping")
 	var platform_y_position = body.position.y
 	var scroll_distance = SCROLL_TO_Y_POSITION - platform_y_position
 	emit_signal("scroll_level", scroll_distance, REGULAR_JUMP_SCROLL_SPEED )
