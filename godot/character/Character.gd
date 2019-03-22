@@ -2,16 +2,16 @@ extends KinematicBody2D
 
 signal scroll_level (amount, scroll_speed)
 
-const GRAVITY: float = 150.0
+const GRAVITY: float = 250.0
 const SCREEN_WIDTH: int = 720
 const SCREEN_MID_POINT: int = SCREEN_WIDTH / 2
 const SCROLL_TO_Y_POSITION: int = 1260
 const REGULAR_JUMP_SCROLL_SPEED: int = 5
-const JUMP_END_THRESHOLD: int = -25
+const JUMP_END_THRESHOLD: int = -100
 onready var PLATFORM_COLLISION_DETECTOR: CollisionShape2D = get_node("PlatformDetection/CollisionShape2D")
 
 # The jump height is negative because down on the Y axis in games in positive, therefore, up on the y axis is negative
-export var jump_height = -350
+export var jump_height = -400
 
 class_name Character
 
@@ -27,7 +27,6 @@ func _process(delta):
 	# Only apply gravity when the background is not scrolling
 	var gravity_to_apply = 0
 	var new_vertical_position = 0
-	print(remaining_jump_height)
 	if remaining_jump_height < JUMP_END_THRESHOLD:
 		amount_jumped = remaining_jump_height * delta
 		remaining_jump_height = remaining_jump_height - amount_jumped
@@ -44,10 +43,11 @@ func _process(delta):
 		$Sprite.play("falling")
 	
 	# ensure that the animated sprite is looking in the correct direction
-	if pointer_position.x < SCREEN_MID_POINT:
+	if pointer_position.x < previous_mouse_x_position:
 		$Sprite.flip_h = true
-	elif $Sprite.flip_h:
+	elif pointer_position.x > previous_mouse_x_position:
 		$Sprite.flip_h = false
+	previous_mouse_x_position = pointer_position.x
 	
 	position = Vector2(clamp(pointer_position.x, 0, SCREEN_WIDTH), new_vertical_position)
 
