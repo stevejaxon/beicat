@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
 [ext_resource path="res://entities/platforms/DestructableRubyPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/parallax_bg_1.png" type="Texture" id=3]
 [ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 360, 1 )
@@ -104,6 +105,7 @@ position = Vector2( 320.876, -1319.38 )
 position = Vector2( 66.0184, -1465.86 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 scroll_offset = Vector2( 0, 1280 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -117,4 +119,34 @@ region_rect = Rect2( 720, 1280, 720, 5120 )
 
 [node name="Cooper" parent="." instance=ExtResource( 4 )]
 position = Vector2( 104.6, 985.446 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Pause" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.588235 )
+
+[node name="StartLevel" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/StartLevel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.588235 )
 

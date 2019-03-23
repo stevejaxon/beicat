@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal scroll_level (amount, scroll_speed)
 
-const GRAVITY: float = 300.0
+const GRAVITY: float = 350.0
 const SCREEN_WIDTH: int = 720
 const SCREEN_MID_POINT: int = SCREEN_WIDTH / 2
 const SCROLL_TO_Y_POSITION: int = 1260
