@@ -1,4 +1,15 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/title_screen/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=2]
 
 [node name="TitleScreen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Cooper" parent="." instance=ExtResource( 2 )]
+position = Vector2( 388.992, 281.538 )
+in_game = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 

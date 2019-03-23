@@ -12,6 +12,7 @@ onready var PLATFORM_COLLISION_DETECTOR: CollisionShape2D = get_node("PlatformDe
 
 # The jump height is negative because down on the Y axis in games in positive, therefore, up on the y axis is negative
 export var jump_height = -400
+export var in_game: bool = true
 
 class_name Character
 
@@ -21,6 +22,8 @@ var previous_mouse_x_position: float = 0.0
 func _ready():
 	assert($PlatformDetection.connect("area_entered", self, "landed_on") == 0)
 	_enableInteractingWithPlatforms()
+	if not in_game:
+		set_process(false)
 
 func _process(delta):
 	var amount_jumped = 0
