@@ -11,5 +11,4 @@ position = Vector2( 388.992, 281.538 )
 in_game = false
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
 
