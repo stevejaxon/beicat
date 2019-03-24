@@ -23,6 +23,7 @@ position = Vector2( 360, 0 )
 shape = SubResource( 1 )
 
 [node name="Platforms" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="DestructableRubyPlatform" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 108.548, 1228.57 )
@@ -99,7 +100,6 @@ region_rect = Rect2( 720, 1280, 720, 5120 )
 position = Vector2( 104.6, 985.446 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 2
 
 [node name="Pause" type="Control" parent="CanvasLayer"]
@@ -119,7 +119,6 @@ color = Color( 0, 0, 0, 0.588235 )
 
 [node name="StartLevel" type="Control" parent="CanvasLayer"]
 pause_mode = 2
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -24,6 +24,9 @@ func _ready():
 	_enableInteractingWithPlatforms()
 	if not in_game:
 		set_process(false)
+	else:
+		set_process(true)
+		$Sprite.play("falling")
 
 func _process(delta):
 	var amount_jumped = 0
