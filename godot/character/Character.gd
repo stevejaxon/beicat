@@ -63,12 +63,6 @@ func landed_on(platform: Platform) -> void:
 	remaining_jump_height = min((jump_height + scroll_distance), 0)
 	emit_signal("scroll_level", scroll_distance, REGULAR_JUMP_SCROLL_SPEED)
 
-func playerLeftScreen(area: Area2D, screenSide) -> void:
-	if screenSide == screen_side.LEFT:
-		position.x = position.x + SCREEN_WIDTH
-	elif screenSide == screen_side.RIGHT:
-		position.x = position.x - SCREEN_WIDTH
-		
 func _preventInteractingWithPlatforms():
 	PLATFORM_COLLISION_DETECTOR.disabled = true
 	

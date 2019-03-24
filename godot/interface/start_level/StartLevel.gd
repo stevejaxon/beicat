@@ -1,4 +1,5 @@
 extends Control
 
-func _ready():
+func level_loaded() -> void:
+	visible = true
 	get_tree().paused = true
