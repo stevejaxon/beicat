@@ -31,7 +31,6 @@ func _ready():
 func _process(delta):
 	var amount_jumped = 0
 	# Only apply gravity when the background is not scrolling
-	var gravity_to_apply = 0
 	var new_vertical_position = 0
 	if remaining_jump_height < JUMP_END_THRESHOLD:
 		amount_jumped = remaining_jump_height * delta
