@@ -32,7 +32,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-screen_side="*res://core/enums/screen_side.gd"
+gem_type="*res://core/enums/gem_type.gd"
 
 [display]
 

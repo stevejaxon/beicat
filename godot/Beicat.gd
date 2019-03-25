@@ -15,4 +15,4 @@ func _connect_platforms() -> void:
 		assert($FallDetector.connect("area_entered", platform, "leftScreen") == 0)
 
 func gameOver(area: Area2D) -> void:
-	get_tree().change_scene("res://interface/game_over/GameOverScreen.tscn")
+	assert(get_tree().change_scene("res://interface/game_over/GameOverScreen.tscn") == 0)

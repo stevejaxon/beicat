@@ -35,6 +35,7 @@ position = Vector2( 463.797, 1227.33 )
 
 [node name="DestructableRubyPlatform8" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 286.172, 996.669 )
+PlatformGemType = 3
 
 [node name="DestructableRubyPlatform2" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 344.048, 777.658 )

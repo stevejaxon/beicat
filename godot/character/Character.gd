@@ -16,7 +16,7 @@ export var in_game: bool = true
 
 class_name Character
 
-var remaining_jump_height: int = 0
+var remaining_jump_height: float = 0.0
 var previous_mouse_x_position: float = 0.0
 
 func _ready():
