@@ -1,0 +1,66 @@
+[gd_scene format=2]
+
+[node name="LevelDesignerUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -12.0
+margin_bottom = 12.0
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="NewPlatform" type="MenuButton" parent="Buttons"]
+margin_right = 115.0
+margin_bottom = 20.0
+action_mode = 1
+text = "NEW PLATFORM"
+flat = false
+items = [ "Amethyst", null, 0, false, false, 0, 0, null, "", false, "Aquamarine", null, 0, false, false, 1, 0, null, "", false, "Emerald", null, 0, false, false, 2, 0, null, "", false, "Garnet", null, 0, false, false, 3, 0, null, "", false, "Ruby", null, 0, false, false, 4, 0, null, "", false, "Sapphire", null, 0, false, false, 5, 0, null, "", false ]
+
+[node name="Spacer" type="VSeparator" parent="Buttons"]
+margin_left = 119.0
+margin_right = 169.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+
+[node name="Save" type="Button" parent="Buttons"]
+margin_left = 173.0
+margin_right = 216.0
+margin_bottom = 20.0
+text = "SAVE"
+
+[node name="Spacer2" type="VSeparator" parent="Buttons"]
+margin_left = 220.0
+margin_right = 270.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+
+[node name="Load" type="Button" parent="Buttons"]
+margin_left = 274.0
+margin_right = 323.0
+margin_bottom = 20.0
+text = "LOAD"
+
+[node name="Spacer3" type="VSeparator" parent="Buttons"]
+margin_left = 327.0
+margin_right = 377.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+
+[node name="ResetButton" type="Button" parent="Buttons"]
+margin_left = 381.0
+margin_right = 429.0
+margin_bottom = 20.0
+text = "RESET"
+

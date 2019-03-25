@@ -14,14 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/Character.gd"
 }, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://level_designer/LevelDesigner.gd"
+}, {
 "base": "Area2D",
 "class": "Platform",
 "language": "GDScript",
 "path": "res://entities/platforms/Platform.gd"
+}, {
+"base": "Node",
+"class": "PlatformConfigurations",
+"language": "GDScript",
+"path": "res://entities/levels/PlatformConfigurations.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
-"Platform": ""
+"Level": "",
+"Platform": "",
+"PlatformConfigurations": ""
 }
 
 [application]
