@@ -10,7 +10,7 @@ height = 44.7432
 offsets = PoolRealArray( 0.225, 1 )
 colors = PoolColorArray( 1, 0.431373, 0.443137, 1, 1, 0.752941, 0.627451, 1 )
 
-[node name="DestructableRubyPlatform" instance=ExtResource( 1 )]
+[node name="DestructableGemPlatform" index="0" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.2, 0.2 )
