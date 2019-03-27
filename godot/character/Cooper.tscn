@@ -67,6 +67,6 @@ animations = [ {
 scale = Vector2( 0.3, 0.3 )
 z_index = 1
 frames = SubResource( 1 )
-animation = "walking"
+animation = "idle"
 offset = Vector2( 0, -175 )
 

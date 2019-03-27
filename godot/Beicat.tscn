@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
-[ext_resource path="res://entities/platforms/DestructableGemsPlatform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/parallax_bg_1.png" type="Texture" id=3]
-[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=4]
-[ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=5]
+[ext_resource path="res://assets/parallax_bg_1.png" type="Texture" id=2]
+[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 360, 1 )
@@ -23,83 +22,6 @@ position = Vector2( 360, 0 )
 shape = SubResource( 1 )
 
 [node name="Platforms" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="DestructableRubyPlatform" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 108.548, 1228.57 )
-script = null
-
-[node name="DestructableRubyPlatform6" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 286.172, 1227.33 )
-script = null
-
-[node name="DestructableRubyPlatform7" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 463.797, 1227.33 )
-script = null
-
-[node name="DestructableRubyPlatform8" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 286.172, 996.669 )
-script = null
-
-[node name="DestructableRubyPlatform2" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 344.048, 777.658 )
-script = null
-
-[node name="DestructableRubyPlatform3" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 107.315, 595.75 )
-script = null
-
-[node name="DestructableRubyPlatform4" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 261.612, 389.961 )
-script = null
-
-[node name="DestructableRubyPlatform5" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 479.116, 276.278 )
-script = null
-
-[node name="DestructableRubyPlatform9" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 675.644, 132.644 )
-script = null
-
-[node name="DestructableRubyPlatform10" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 83.232, -4.70694 )
-script = null
-
-[node name="DestructableRubyPlatform11" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 254.782, -140.411 )
-script = null
-
-[node name="DestructableRubyPlatform12" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 455.464, -243.72 )
-script = null
-
-[node name="DestructableRubyPlatform13" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 634.725, -349.019 )
-script = null
-
-[node name="DestructableRubyPlatform14" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 72.846, -495.782 )
-script = null
-
-[node name="DestructableRubyPlatform15" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 276.096, -713.431 )
-script = null
-
-[node name="DestructableRubyPlatform16" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 288.89, -928.791 )
-script = null
-
-[node name="DestructableRubyPlatform17" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 302.566, -1121.28 )
-script = null
-
-[node name="DestructableRubyPlatform18" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 320.876, -1319.38 )
-script = null
-
-[node name="DestructableRubyPlatform19" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 66.0184, -1465.86 )
-script = null
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 editor/display_folded = true
@@ -110,12 +32,12 @@ visible = false
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 visible = false
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 720, 1280, 720, 5120 )
 
-[node name="Cooper" parent="." instance=ExtResource( 4 )]
+[node name="Cooper" parent="." instance=ExtResource( 3 )]
 position = Vector2( 104.6, 985.446 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -143,7 +65,7 @@ editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/StartLevel"]
 anchor_right = 1.0
