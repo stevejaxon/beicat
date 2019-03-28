@@ -23,5 +23,8 @@ static func _load(data) -> Array:
 	platforms.append({ "position": Vector2(280.0, 800.0), "platform": platform })
 	platform = Platform.instance()
 	platform.changeGemType(3)
-	platforms.append({ "position": Vector2(380.0, 600.0), "platform": platform })
+	platforms.append({ "position": Vector2(380.0, 700.0), "platform": platform })
+	platform = Platform.instance()
+	platform.changeGemType(4)
+	platforms.append({ "position": Vector2(480.0, 600.0), "platform": platform })
 	return platforms
