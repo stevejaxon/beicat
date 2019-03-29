@@ -6,7 +6,7 @@ const GRAVITY: float = 350.0
 const SCREEN_WIDTH: int = 720
 const SCREEN_MID_POINT: int = SCREEN_WIDTH / 2
 const SCROLL_TO_Y_POSITION: int = 1300
-const REGULAR_JUMP_SCROLL_SPEED: int = 10
+const REGULAR_JUMP_SCROLL_SPEED: int = 15
 const JUMP_END_THRESHOLD: int = -110
 onready var PLATFORM_COLLISION_DETECTOR: CollisionShape2D = get_node("PlatformDetection/CollisionShape2D")
 

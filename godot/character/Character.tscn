@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20, 5 )
+extents = Vector2( 20, 20 )
 
 [node name="Character" type="KinematicBody2D"]
 collision_mask = 12
