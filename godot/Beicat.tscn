@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
-[ext_resource path="res://assets/parallax_bg_1.png" type="Texture" id=2]
+[ext_resource path="res://interface/level_background/ParallaxBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=4]
 
@@ -23,19 +23,7 @@ shape = SubResource( 1 )
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
-scroll_offset = Vector2( 0, 1280 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-visible = false
-texture = ExtResource( 2 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 720, 1280, 720, 5120 )
+[node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
 
 [node name="Cooper" parent="." instance=ExtResource( 3 )]
 position = Vector2( 104.6, 985.446 )
