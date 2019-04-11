@@ -9,7 +9,7 @@ const REGULAR_JUMP_SCROLL_SPEED: int = 15
 const JUMP_END_THRESHOLD: int = -110
 
 # The jump height is negative because down on the Y axis in games in positive, therefore, up on the y axis is negative
-export var jump_height = -600
+export var jump_height = -500
 # A variable for use when the character is re-used outside of the main game, e.g in the menu system
 export var in_game: bool = true
 
