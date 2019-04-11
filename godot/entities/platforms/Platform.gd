@@ -20,7 +20,7 @@ func scrollDown(distance: int, velocity: int) -> void:
 	scroll_velocity = velocity
 
 func leftScreen(area: Area2D) -> void:
-	#free()
+	# call_deferred('free')
 	pass
 
 func land() -> void:

@@ -4,14 +4,13 @@ signal scroll_level (amount, scroll_speed)
 
 const GRAVITY: float = 350.0
 const SCREEN_WIDTH: int = 720
-const SCREEN_MID_POINT: int = SCREEN_WIDTH / 2
 const SCROLL_TO_Y_POSITION: int = 1300
 const REGULAR_JUMP_SCROLL_SPEED: int = 15
 const JUMP_END_THRESHOLD: int = -110
-onready var PLATFORM_COLLISION_DETECTOR: CollisionShape2D = get_node("PlatformDetection/CollisionShape2D")
 
 # The jump height is negative because down on the Y axis in games in positive, therefore, up on the y axis is negative
-export var jump_height = -400
+export var jump_height = -600
+# A variable for use when the character is re-used outside of the main game, e.g in the menu system
 export var in_game: bool = true
 
 class_name Character
@@ -21,7 +20,6 @@ var previous_mouse_x_position: float = 0.0
 
 func _ready():
 	assert($PlatformDetection.connect("area_entered", self, "landed_on") == 0)
-	_enableInteractingWithPlatforms()
 	if not in_game:
 		set_process(false)
 	else:
@@ -41,10 +39,7 @@ func _process(delta):
 		new_vertical_position = position.y + (GRAVITY * delta)
 		
 	var pointer_position = 	get_global_mouse_position()		
-	if not PLATFORM_COLLISION_DETECTOR.disabled and amount_jumped < 0:
-		_preventInteractingWithPlatforms()
-	elif PLATFORM_COLLISION_DETECTOR.disabled and amount_jumped >= 0:
-		_enableInteractingWithPlatforms()
+	if amount_jumped >= 0:
 		$Sprite.play("falling")
 	
 	# ensure that the animated sprite is looking in the correct direction
@@ -64,9 +59,3 @@ func landed_on(platform: Platform) -> void:
 	#position.y = position.y + min((jump_height + scroll_distance), 0)
 	remaining_jump_height = min((jump_height + scroll_distance), 0)
 	emit_signal("scroll_level", scroll_distance, REGULAR_JUMP_SCROLL_SPEED)
-
-func _preventInteractingWithPlatforms():
-	PLATFORM_COLLISION_DETECTOR.disabled = true
-	
-func _enableInteractingWithPlatforms():
-	PLATFORM_COLLISION_DETECTOR.disabled = false
