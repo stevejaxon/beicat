@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-signal scroll_level (amount, scroll_speed)
-
 const GRAVITY: float = 350.0
 const SCREEN_WIDTH: int = 720
 const SCROLL_TO_Y_POSITION: int = 1300
@@ -28,7 +26,6 @@ func _ready():
 
 func _process(delta):
 	var amount_jumped = 0
-	# Only apply gravity when the background is not scrolling
 	var new_vertical_position = 0
 	if remaining_jump_height < JUMP_END_THRESHOLD:
 		amount_jumped = remaining_jump_height * delta
@@ -54,8 +51,4 @@ func _process(delta):
 func landed_on(platform: Platform) -> void:
 	platform.land()
 	$Sprite.play("jumping")
-	var platform_y_position = platform.position.y
-	var scroll_distance = SCROLL_TO_Y_POSITION - platform_y_position
-	#position.y = position.y + min((jump_height + scroll_distance), 0)
-	remaining_jump_height = min((jump_height + scroll_distance), 0)
-	emit_signal("scroll_level", scroll_distance, REGULAR_JUMP_SCROLL_SPEED)
+	remaining_jump_height = jump_height
