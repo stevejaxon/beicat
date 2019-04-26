@@ -61,8 +61,8 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Cooper" instance=ExtResource( 1 )]
-jump_height = -400
+[node name="Cooper" index="0" instance=ExtResource( 1 )]
+jump_height = -25
 
 [node name="PlatformDetection" parent="." index="2"]
 editor/display_folded = true
