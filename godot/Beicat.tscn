@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
 [ext_resource path="res://interface/level_background/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -6,10 +6,7 @@
 [ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 360, 50 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5, 640 )
+extents = Vector2( 380, 50 )
 
 [node name="Beicat" type="Node2D"]
 script = ExtResource( 1 )
@@ -62,13 +59,4 @@ script = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.784314 )
-
-[node name="LeftScreenEdge" type="StaticBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -5, 640 )
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftScreenEdge"]
-shape = SubResource( 2 )
 

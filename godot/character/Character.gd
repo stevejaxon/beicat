@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const GRAVITY: float = 50.0
+const TERMINAL_VELOCITY: float = 100.0
 const HORIZONTAL_SPEED: float = 10.0
 const SCREEN_WIDTH: int = 720
 const SCROLL_TO_Y_POSITION: int = 1300
@@ -14,6 +15,7 @@ class_name Character
 
 var speed_y: float = 0.0
 var speed_x: float = 0.0
+var is_falling: bool = true
 var previous_mouse_x_position: float = 0.0
 
 func _ready():
@@ -27,10 +29,11 @@ func _ready():
 
 func _process(delta):
 	# Apply the gravity
-	speed_y += GRAVITY * delta
+	speed_y += min(GRAVITY * delta, TERMINAL_VELOCITY)
 	
-	if speed_y >= 0:
+	if speed_y >= 0 and not is_falling:
 		$Sprite.play("falling")
+		is_falling = true
 	
 	var pointer_position = get_global_mouse_position()
 	# ensure that the animated sprite is looking in the correct direction
@@ -39,7 +42,8 @@ func _process(delta):
 	elif pointer_position.x > previous_mouse_x_position:
 		$Sprite.flip_h = false
 	
-	var remaining_x_distance = pointer_position.x - position.x
+	# ensure the character does not go off of the screen
+	var remaining_x_distance = clamp(pointer_position.x, 0, SCREEN_WIDTH) - position.x
 	speed_x = HORIZONTAL_SPEED * delta * remaining_x_distance
 	previous_mouse_x_position = pointer_position.x
 	
@@ -50,3 +54,4 @@ func landed_on(platform: Platform) -> void:
 	$Sprite.play("idle")
 	$Sprite.play("jumping")
 	speed_y = jump_height
+	is_falling = false
