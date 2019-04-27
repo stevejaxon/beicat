@@ -20,6 +20,7 @@ func land() -> void:
 	$platformDiamondExplosion.emitting = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite.visible = false
+	call_deferred('free')
 
 func changeGemType(newGemType: int) -> void:
 	PlatformGemType = newGemType

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
 [ext_resource path="res://interface/level_background/ParallaxBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=4]
+[ext_resource path="res://assets/audio/Air.ogg" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 380, 50 )
@@ -12,6 +13,7 @@ extents = Vector2( 380, 50 )
 script = ExtResource( 1 )
 
 [node name="FallDetector" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, 1350 )
 priority = 1.0
 collision_layer = 8
@@ -29,7 +31,6 @@ shape = SubResource( 1 )
 position = Vector2( 355.429, 1045.87 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 2
 
 [node name="Pause" type="Control" parent="CanvasLayer"]
@@ -59,4 +60,7 @@ script = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.784314 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 

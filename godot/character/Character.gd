@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const GRAVITY: float = 50.0
 const TERMINAL_VELOCITY: float = 100.0
-const HORIZONTAL_SPEED: float = 10.0
+const HORIZONTAL_SPEED: float = 35.0
 const SCREEN_WIDTH: int = 720
 const SCROLL_TO_Y_POSITION: int = 1300
 
