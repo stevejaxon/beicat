@@ -3,15 +3,16 @@ extends Node2D
 signal level_load_completed
 
 const SCREEN_HEIGHT: int = 1280
+const LEVELS_PER_DIFFICULTY_STAGE = 8
 
 var last_loaded_platform
+var difficulty_stage: int = 0
 
 func _ready():
 	# Connect the signal for when a player falls to the bottom of the screen to the function to handle the game being over
 	assert($FallDetector.connect("body_exited", self, "gameOver") == 0)
 	assert(self.connect("level_load_completed", $CanvasLayer/StartLevel, "level_loaded") == 0)
 	assert($CanvasLayer/StartLevel.connect("level_started", self, "_play_level_music") == 0)
-	_load_level()
 	_load_level()
 	_load_level()
 	_load_level()

@@ -17,10 +17,10 @@ var EXPLOSION_COLOR_MAP = {
 export (int) var PlatformGemType = gem_type.RUBY setget changeGemType
 
 func land() -> void:
+	.land()
 	$platformDiamondExplosion.emitting = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite.visible = false
-	call_deferred('free')
 
 func changeGemType(newGemType: int) -> void:
 	PlatformGemType = newGemType

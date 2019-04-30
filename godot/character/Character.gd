@@ -20,6 +20,7 @@ var previous_mouse_x_position: float = 0.0
 
 func _ready():
 	assert($PlatformDetection.connect("area_entered", self, "landed_on") == 0)
+	assert($PlatformSweeper.connect("area_entered", self, "platform_left_game") == 0)
 	assert(jump_height < 0)
 	if not in_game:
 		set_process(false)
@@ -55,3 +56,6 @@ func landed_on(platform: Platform) -> void:
 	$Sprite.play("jumping")
 	speed_y = jump_height
 	is_falling = false
+
+func platform_left_game(platform: Platform) -> void:
+	platform.remove_from_game()

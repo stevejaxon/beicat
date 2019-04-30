@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/122126__zimbot__thud-4-dry.wav-9226a86d35be52597d5b7ab26308bda6.sample"
+
+[deps]
+
+source_file="res://assets/audio/122126__zimbot__thud-4-dry.wav"
+dest_files=[ "res://.import/122126__zimbot__thud-4-dry.wav-9226a86d35be52597d5b7ab26308bda6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
