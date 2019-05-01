@@ -61,7 +61,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[node name="Cooper" index="0" instance=ExtResource( 1 )]
+[node name="Cooper" instance=ExtResource( 1 )]
 jump_height = -25
 
 [node name="CollisionShape2D" parent="." index="0"]
