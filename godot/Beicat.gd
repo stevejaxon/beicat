@@ -34,7 +34,8 @@ func _load_level() -> void:
 
 func _display_platform(platform, absolutePosition: Vector2) -> void:
 	platform.position = absolutePosition
-	$Platforms.add_child(platform)
+	$Platforms.call_deferred("add_child", platform)
+	# $Platforms.add_child(platform)
 
 func _connect_platform_signals(platform: Platform) -> void:
 	assert(platform.connect("platform_exited", self, "_handle_platform_exit") == 0)
