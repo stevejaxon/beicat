@@ -84,7 +84,3 @@ limit_bottom = 1280
 smoothing_enabled = false
 drag_margin_bottom = 0.08
 
-[node name="PlatformSweeper" parent="." index="5"]
-editor/display_folded = true
-position = Vector2( 0, 700 )
-

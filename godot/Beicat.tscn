@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
 [ext_resource path="res://interface/level_background/ParallaxBackground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=4]
-[ext_resource path="res://assets/audio/Air.ogg" type="AudioStream" id=5]
+[ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/Air.ogg" type="AudioStream" id=4]
+[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 380, 50 )
@@ -26,9 +26,6 @@ shape = SubResource( 1 )
 [node name="Platforms" type="Node" parent="."]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
-
-[node name="Cooper" parent="." instance=ExtResource( 3 )]
-position = Vector2( 355.429, 1045.87 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -54,7 +51,7 @@ editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/StartLevel"]
 anchor_right = 1.0
@@ -62,5 +59,9 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.784314 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
+
+[node name="Cooper" parent="." instance=ExtResource( 5 )]
+position = Vector2( 360, 1100 )
+z_index = 1
 
