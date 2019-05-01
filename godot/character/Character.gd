@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const GRAVITY: float = 50.0
-const TERMINAL_VELOCITY: float = 100.0
+const TERMINAL_VELOCITY: float = 55.0
 const HORIZONTAL_SPEED: float = 35.0
 const SCREEN_WIDTH: int = 720
 const SCROLL_TO_Y_POSITION: int = 1300
@@ -30,7 +30,7 @@ func _ready():
 
 func _process(delta):
 	# Apply the gravity
-	speed_y += min(GRAVITY * delta, TERMINAL_VELOCITY)
+	speed_y = min(speed_y + (GRAVITY * delta), TERMINAL_VELOCITY)
 	
 	if speed_y >= 0 and not is_falling:
 		$Sprite.play("falling")
