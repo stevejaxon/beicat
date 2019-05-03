@@ -5,9 +5,11 @@ signal level_load_completed
 const SCREEN_HEIGHT: int = 1280
 const LEVELS_PER_DIFFICULTY_STAGE = 8
 
+var level_loader: LevelLoader = LevelLoader.new();
 var last_loaded_platform
 var difficulty_stage: int = 0
-var difficulty_level: int = 0
+var stage_progress: int = 0
+var previously_seen_level_id: int = -1
 
 func _ready():
 	# Connect the signal for when a player falls to the bottom of the screen to the function to handle the game being over
@@ -18,7 +20,7 @@ func _ready():
 	emit_signal("level_load_completed")
 
 func _load_level() -> void:
-	var platformsData = LevelLoader.load("data", difficulty_stage, difficulty_level)
+	var platformsData = level_loader.load("data", difficulty_stage)
 	var y_offset = 0
 	if last_loaded_platform != null:
 		y_offset = SCREEN_HEIGHT - last_loaded_platform.position.y
@@ -27,21 +29,25 @@ func _load_level() -> void:
 		_display_platform(data.platform, data.position)
 		_connect_platform_signals(data.platform)
 	last_loaded_platform = platformsData[platformsData.size() -1]
-	difficulty_level += 1
-	if difficulty_level == LEVELS_PER_DIFFICULTY_STAGE:
-		difficulty_stage +=1
-		difficulty_level = 0
 
 func _display_platform(platform, absolutePosition: Vector2) -> void:
 	platform.position = absolutePosition
 	$Platforms.call_deferred("add_child", platform)
-	# $Platforms.add_child(platform)
 
 func _connect_platform_signals(platform: Platform) -> void:
 	assert(platform.connect("platform_exited", self, "_handle_platform_exit") == 0)
 
-func _handle_platform_exit(stage: int, level: int) -> void:
-	if stage == difficulty_stage && level < difficulty_level:
+# We trigger the loading of the next stage's levels into the game state upon a user reaching the start of the previous stage.
+# Since we can't be certain which platform will be the first that the user lands on, every platform broadcasts 
+func _handle_platform_exit(stage: int, level_id: int) -> void:
+	# Check to make sure that we haven't already loaded a level for the next step of progress in the stage
+	if level_id != previously_seen_level_id:
+		previously_seen_level_id = level_id
+		if stage_progress + 1 == LEVELS_PER_DIFFICULTY_STAGE:
+			difficulty_stage +=1
+			stage_progress = 0
+		else:
+			stage_progress += 1
 		_load_level()
 
 func _play_level_music() -> void:

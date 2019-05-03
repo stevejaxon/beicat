@@ -64,4 +64,5 @@ stream = ExtResource( 4 )
 [node name="Cooper" parent="." instance=ExtResource( 5 )]
 position = Vector2( 360, 1100 )
 z_index = 1
+jump_height = -27
 

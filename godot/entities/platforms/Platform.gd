@@ -13,6 +13,7 @@ func set_stage_and_level(_stage: int, _level: int):
 
 func land() -> void:
 	$AudioStreamPlayer.play()
+	prints('lands', stage, level)
 	emit_signal("platform_exited", stage, level)
 
 func remove_from_game() -> void:
