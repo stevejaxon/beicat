@@ -10,22 +10,21 @@ script = ExtResource( 1 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2( 720, 1280 )
 rotation = 3.14159
-motion_scale = Vector2( 1, 0.1 )
+motion_scale = Vector2( 1, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
 texture = ExtResource( 2 )
 centered = false
-region_enabled = true
 region_rect = Rect2( 720, 2560, 720, 5210 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 position = Vector2( 720, 1280 )
 rotation = 3.14159
-motion_scale = Vector2( 1, 0.3 )
+motion_scale = Vector2( 1, 0.01 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
 texture = ExtResource( 3 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 720, 2560, 720, 5120 )
+region_rect = Rect2( 720, 2560, 720, 10240 )
 
