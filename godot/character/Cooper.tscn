@@ -61,7 +61,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Cooper" index="0" instance=ExtResource( 1 )]
+[node name="Cooper" instance=ExtResource( 1 )]
 jump_height = -25
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -78,7 +78,6 @@ animation = "idle"
 offset = Vector2( 0, -175 )
 
 [node name="CameraRigging" parent="." index="4"]
-editor/display_folded = false
 position = Vector2( 0, -200 )
 
 [node name="Camera2D" parent="CameraRigging" index="0"]
@@ -90,5 +89,6 @@ drag_margin_top = 0.1
 drag_margin_bottom = 0.08
 
 [node name="PlatformSweeper" parent="." index="5"]
+editor/display_folded = true
 position = Vector2( 0, 1000 )
 
