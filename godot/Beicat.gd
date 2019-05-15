@@ -3,13 +3,14 @@ extends Node2D
 signal level_load_completed
 
 const SCREEN_HEIGHT: int = 1280
-const LEVELS_PER_DIFFICULTY_STAGE = 8
+const MAX_LEVELS_PER_DIFFICULTY_STAGE = 10
 
 var level_loader: LevelLoader = LevelLoader.new();
 var last_loaded_platform
 var difficulty_stage: int = 0
 var stage_progress: int = 0
 var previously_seen_level_id: int = -1
+var previously_previously_seen_level_id: int = -1
 
 func _ready():
 	# Connect the signal for when a player falls to the bottom of the screen to the function to handle the game being over
@@ -43,9 +44,10 @@ func _connect_platform_signals(platform: Platform) -> void:
 func _handle_platform_landed_on(stage: int, level_id: int) -> void:
 	global_variables.updateScore(_calculate_score_for_landing_on_platform(stage))
 	# Check to make sure that we haven't already loaded a level for the next step of progress in the stage
-	if level_id != previously_seen_level_id:
+	if level_id != previously_seen_level_id and level_id != previously_previously_seen_level_id:
+		previously_previously_seen_level_id = previously_seen_level_id
 		previously_seen_level_id = level_id
-		if stage_progress + 1 == LEVELS_PER_DIFFICULTY_STAGE:
+		if stage_progress + 1 == _calculate_number_of_levels_per_stage(stage):
 			difficulty_stage +=1
 			stage_progress = 0
 		else:
@@ -55,6 +57,9 @@ func _handle_platform_landed_on(stage: int, level_id: int) -> void:
 func _calculate_score_for_landing_on_platform(stage: int) -> int:
 	# The function x^2 - x + 1 seemed like a reasonable exponential function based on plotting / trial and error.
 	return stage*stage - stage + 1;
+
+func _calculate_number_of_levels_per_stage(stage: int) -> int:
+	return int(min(pow(2.0, stage), MAX_LEVELS_PER_DIFFICULTY_STAGE))
 
 func _play_level_music() -> void:
 	$AudioStreamPlayer.play()
