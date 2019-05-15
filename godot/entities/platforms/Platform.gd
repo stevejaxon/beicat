@@ -1,6 +1,6 @@
 extends Area2D
 
-signal platform_exited
+signal platform_landed_on
 
 var stage: int
 var level: int
@@ -13,7 +13,7 @@ func set_stage_and_level(_stage: int, _level: int):
 
 func land() -> void:
 	$AudioStreamPlayer.play()
-	emit_signal("platform_exited", stage, level)
+	emit_signal("platform_landed_on", stage, level)
 
 func remove_from_game() -> void:
 	call_deferred("queue_free")

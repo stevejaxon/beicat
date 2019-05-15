@@ -25,7 +25,6 @@ position = Vector2( 360, 0 )
 shape = SubResource( 1 )
 
 [node name="hud" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="Platforms" type="Node" parent="."]
 

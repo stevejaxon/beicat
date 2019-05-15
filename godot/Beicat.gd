@@ -36,11 +36,12 @@ func _display_platform(platform, absolutePosition: Vector2) -> void:
 	$Platforms.call_deferred("add_child", platform)
 
 func _connect_platform_signals(platform: Platform) -> void:
-	assert(platform.connect("platform_exited", self, "_handle_platform_exit") == 0)
+	assert(platform.connect("platform_landed_on", self, "_handle_platform_landed_on") == 0)
 
 # We trigger the loading of the next stage's levels into the game state upon a user reaching the start of the previous stage.
 # Since we can't be certain which platform will be the first that the user lands on, every platform broadcasts 
-func _handle_platform_exit(stage: int, level_id: int) -> void:
+func _handle_platform_landed_on(stage: int, level_id: int) -> void:
+	global_variables.updateScore(_calculate_score_for_landing_on_platform(stage))
 	# Check to make sure that we haven't already loaded a level for the next step of progress in the stage
 	if level_id != previously_seen_level_id:
 		previously_seen_level_id = level_id
@@ -50,6 +51,10 @@ func _handle_platform_exit(stage: int, level_id: int) -> void:
 		else:
 			stage_progress += 1
 		_load_level()
+
+func _calculate_score_for_landing_on_platform(stage: int) -> int:
+	# The function x^2 - x + 1 seemed like a reasonable exponential function based on plotting / trial and error.
+	return stage*stage - stage + 1;
 
 func _play_level_music() -> void:
 	$AudioStreamPlayer.play()

@@ -1,4 +1,4 @@
 extends Node
 
 func updateScore() -> void:
-	$VBoxContainer/HBoxContainer/ScoreValue.text = global_variables.score
+	$VBoxContainer/HBoxContainer/ScoreValue.set_text(String(global_variables.score))
