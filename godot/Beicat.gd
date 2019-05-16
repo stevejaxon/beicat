@@ -59,7 +59,7 @@ func _calculate_score_for_landing_on_platform(stage: int) -> int:
 	return stage*stage - stage + 1;
 
 func _calculate_number_of_levels_per_stage(stage: int) -> int:
-	return int(min(pow(2.0, stage), MAX_LEVELS_PER_DIFFICULTY_STAGE))
+	return int(min(0.66*stage + 2, MAX_LEVELS_PER_DIFFICULTY_STAGE))
 
 func _play_level_music() -> void:
 	$AudioStreamPlayer.play()
