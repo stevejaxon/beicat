@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://interface/gui/hud.gd" type="Script" id=1]
+[ext_resource path="res://assets/gui/fonts/kenvector_future_40.tres" type="DynamicFont" id=2]
+
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -12,18 +14,20 @@ margin_top = 10.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 710.0
-margin_bottom = 14.0
+margin_bottom = 45.0
 
 [node name="ScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_right = 45.0
-margin_bottom = 14.0
+margin_right = 178.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 2 )
 text = "SCORE:"
 uppercase = true
 
 [node name="ScoreValue" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 49.0
-margin_right = 57.0
-margin_bottom = 14.0
+margin_left = 182.0
+margin_right = 215.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 2 )
 text = "0"
 uppercase = true
 
