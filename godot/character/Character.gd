@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
+signal free_falling
+
 const GRAVITY: float = 50.0
 const TERMINAL_VELOCITY: float = 75.0
 const HORIZONTAL_SPEED: float = 35.0
 const SCREEN_WIDTH: int = 720
-const SCROLL_TO_Y_POSITION: int = 1300
+const MAX_FALL_TIME_IN_SECS: float = 3.0
 
 # The jump height is negative because down on the Y axis in games in positive, therefore, up on the y axis is negative
 export var jump_height = -1
@@ -51,6 +53,7 @@ func _process(delta):
 	move_and_collide(Vector2(speed_x, speed_y))
 
 func landed_on(platform: Platform) -> void:
+	$FallTimer.start(MAX_FALL_TIME_IN_SECS)
 	platform.land()
 	$Sprite.play("idle")
 	$Sprite.play("jumping")
@@ -59,3 +62,11 @@ func landed_on(platform: Platform) -> void:
 
 func platform_left_game(platform: Platform) -> void:
 	platform.remove_from_game()
+
+func _on_FallTimer_timeout():
+	# Sends the second signal null because the GameOver function is also mapped to the signal from the
+	# Area detecting the character passing the bottom of the screen and that signal sends an Area2D along with the call.
+	# The code is a bit quick and dirty...
+	emit_signal("free_falling", null)
+	$FallTimer.stop()
+	call_deferred("queue_free")

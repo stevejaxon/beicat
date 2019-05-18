@@ -13,17 +13,6 @@ extents = Vector2( 380, 50 )
 [node name="Beicat" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="FallDetector" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 0, 1350 )
-priority = 1.0
-collision_layer = 8
-collision_mask = 2
-
-[node name="ScreenBottom" type="CollisionShape2D" parent="FallDetector"]
-position = Vector2( 360, 0 )
-shape = SubResource( 1 )
-
 [node name="hud" parent="." instance=ExtResource( 2 )]
 
 [node name="Platforms" type="Node" parent="."]
@@ -69,4 +58,15 @@ stream = ExtResource( 5 )
 position = Vector2( 360, 1100 )
 z_index = 1
 jump_height = -27
+
+[node name="FallDetector" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0, 1350 )
+priority = 1.0
+collision_layer = 8
+collision_mask = 2
+
+[node name="ScreenBottom" type="CollisionShape2D" parent="FallDetector"]
+position = Vector2( 360, 0 )
+shape = SubResource( 1 )
 

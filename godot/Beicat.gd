@@ -15,6 +15,7 @@ var previously_previously_seen_level_id: int = -1
 func _ready():
 	# Connect the signal for when a player falls to the bottom of the screen to the function to handle the game being over
 	assert($FallDetector.connect("body_exited", self, "gameOver") == 0)
+	assert($Cooper.connect("free_falling", self, "gameOver") == 0)
 	assert(self.connect("level_load_completed", $CanvasLayer/StartLevel, "level_loaded") == 0)
 	assert($CanvasLayer/StartLevel.connect("level_started", self, "_play_level_music") == 0)
 	assert(global_variables.connect("score_updated", $hud, "updateScore") == 0)
