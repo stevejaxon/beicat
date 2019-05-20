@@ -7,6 +7,7 @@ const TERMINAL_VELOCITY: float = 75.0
 const HORIZONTAL_SPEED: float = 35.0
 const SCREEN_WIDTH: int = 720
 const MAX_FALL_TIME_IN_SECS: float = 3.0
+const PLATFORM_COLLISION_LAYER_BIT: int = 1
 
 # The jump height is negative because down on the Y axis in games in positive, therefore, up on the y axis is negative
 export var jump_height = -1
@@ -53,6 +54,8 @@ func _process(delta):
 	move_and_collide(Vector2(speed_x, speed_y))
 
 func landed_on(platform: Platform) -> void:
+	if platform == null || ! platform.get_collision_layer_bit(PLATFORM_COLLISION_LAYER_BIT):
+		return
 	$FallTimer.start(MAX_FALL_TIME_IN_SECS)
 	platform.land()
 	$Sprite.play("idle")
@@ -61,6 +64,8 @@ func landed_on(platform: Platform) -> void:
 	is_falling = false
 
 func platform_left_game(platform: Platform) -> void:
+	if platform == null || ! platform.get_collision_layer_bit(PLATFORM_COLLISION_LAYER_BIT):
+		return
 	platform.remove_from_game()
 
 func _on_FallTimer_timeout():

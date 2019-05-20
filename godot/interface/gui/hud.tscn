@@ -3,7 +3,6 @@
 [ext_resource path="res://interface/gui/hud.gd" type="Script" id=1]
 [ext_resource path="res://assets/gui/fonts/kenvector_future_40.tres" type="DynamicFont" id=2]
 
-
 [node name="hud" type="CanvasLayer"]
 script = ExtResource( 1 )
 
