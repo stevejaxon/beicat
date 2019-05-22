@@ -37,7 +37,7 @@ func _load_0_0() -> Array:
 	var platform = Platform.instance()
 	platform.changeGemType(0)
 	platform.set_stage_and_level(current_stage,level)
-	platforms.append({ "position": Vector2(350.0, 1200.0), "platform": platform })
+	platforms.append({ "position": Vector2(520.0, 1200.0), "platform": platform })
 	platform = Platform.instance()
 	platform.changeGemType(0)
 	platform.set_stage_and_level(current_stage,level)

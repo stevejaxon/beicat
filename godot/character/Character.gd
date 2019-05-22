@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 signal free_falling
 
+enum Status {ON_GROUND, JUMPING, FALLING}
+
 const GRAVITY: float = 50.0
 const TERMINAL_VELOCITY: float = 75.0
 const HORIZONTAL_SPEED: float = 35.0
@@ -18,7 +20,7 @@ class_name Character
 
 var speed_y: float = 0.0
 var speed_x: float = 0.0
-var is_falling: bool = true
+var character_status: int = Status.ON_GROUND
 var previous_mouse_x_position: float = 0.0
 
 func _ready():
@@ -32,12 +34,21 @@ func _ready():
 		$Sprite.play("idle")
 
 func _process(delta):
+	if character_status == Status.ON_GROUND:
+		_handle_player_on_the_ground(delta)
+	else:
+		_handle_player_on_the_ground(delta)
+
+func _handle_player_on_the_ground(delta) -> void:
+	pass
+
+func _handle_player_jumping(delta) -> void:
 	# Apply the gravity
 	speed_y = min(speed_y + (GRAVITY * delta), TERMINAL_VELOCITY)
 	
-	if speed_y >= 0 and not is_falling:
+	if speed_y >= 0 and not character_status == Status.FALLING:
 		$Sprite.play("falling")
-		is_falling = true
+		character_status = Status.FALLING
 	
 	var pointer_position = get_global_mouse_position()
 	# ensure that the animated sprite is looking in the correct direction
@@ -61,7 +72,7 @@ func landed_on(platform: Platform) -> void:
 	$Sprite.play("idle")
 	$Sprite.play("jumping")
 	speed_y = jump_height
-	is_falling = false
+	character_status = Status.JUMPING
 
 func platform_left_game(platform: Platform) -> void:
 	if platform == null || ! platform.get_collision_layer_bit(PLATFORM_COLLISION_LAYER_BIT):
