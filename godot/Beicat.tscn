@@ -5,8 +5,8 @@
 [ext_resource path="res://interface/level_background/ParallaxBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=4]
 [ext_resource path="res://assets/audio/Air.ogg" type="AudioStream" id=5]
-[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=6]
-[ext_resource path="res://entities/platforms/GroundGem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/platforms/GroundGem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 380, 50 )
@@ -55,11 +55,6 @@ color = Color( 0, 0, 0, 0.784314 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
-[node name="Cooper" parent="." instance=ExtResource( 6 )]
-position = Vector2( 360, 1250 )
-z_index = 1
-jump_height = -27
-
 [node name="FallDetector" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 0, 1350 )
@@ -74,33 +69,36 @@ shape = SubResource( 1 )
 [node name="Ground" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="GroundGem" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 35.7949, 1301.74 )
 
-[node name="GroundGem2" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem2" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 110.767, 1301.74 )
 
-[node name="GroundGem3" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem3" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 185.483, 1301.74 )
 
-[node name="GroundGem4" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem4" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 260.454, 1301.49 )
 
-[node name="GroundGem5" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem5" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 334.658, 1301.49 )
 
-[node name="GroundGem6" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem6" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 409.43, 1301.49 )
 
-[node name="GroundGem7" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem7" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 484.202, 1301.49 )
 
-[node name="GroundGem8" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem8" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 559.23, 1301.49 )
 
-[node name="GroundGem9" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem9" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 634.258, 1301.23 )
 
-[node name="GroundGem10" parent="Ground" instance=ExtResource( 7 )]
+[node name="GroundGem10" parent="Ground" instance=ExtResource( 6 )]
 position = Vector2( 708.774, 1301.74 )
+
+[node name="Cooper" parent="." instance=ExtResource( 7 )]
+position = Vector2( 360, 1250 )
 

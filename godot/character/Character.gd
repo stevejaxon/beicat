@@ -29,7 +29,7 @@ func _ready():
 		set_process(false)
 	else:
 		set_process(true)
-		$Sprite.play("falling")
+		$Sprite.play("idle")
 
 func _process(delta):
 	# Apply the gravity

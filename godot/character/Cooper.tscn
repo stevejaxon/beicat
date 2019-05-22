@@ -65,9 +65,6 @@ animations = [ {
 collision_mask = 6
 jump_height = -25
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0, 8 )
-
 [node name="CollisionShape2D" parent="PlatformDetection" index="0"]
 position = Vector2( 0, -10 )
 
