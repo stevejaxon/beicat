@@ -18,6 +18,7 @@ func _ready():
 	assert($Cooper.connect("free_falling", self, "gameOver") == 0)
 	assert(self.connect("level_load_completed", $CanvasLayer/StartLevel, "level_loaded") == 0)
 	assert($CanvasLayer/StartLevel.connect("level_started", self, "_play_level_music") == 0)
+	assert($CanvasLayer/StartLevel.connect("level_started", $Cooper, "start") == 0)
 	assert(global_variables.connect("score_updated", $hud, "updateScore") == 0)
 	_load_level()
 	emit_signal("level_load_completed")

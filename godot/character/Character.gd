@@ -33,11 +33,14 @@ func _ready():
 		set_process(true)
 		$Sprite.play("idle")
 
+func start():
+	_jump()
+
 func _process(delta):
 	if character_status == Status.ON_GROUND:
 		_handle_player_on_the_ground(delta)
 	else:
-		_handle_player_on_the_ground(delta)
+		_handle_player_jumping(delta)
 
 func _handle_player_on_the_ground(delta) -> void:
 	pass
@@ -69,6 +72,9 @@ func landed_on(platform: Platform) -> void:
 		return
 	$FallTimer.start(MAX_FALL_TIME_IN_SECS)
 	platform.land()
+	_jump()
+	
+func _jump():
 	$Sprite.play("idle")
 	$Sprite.play("jumping")
 	speed_y = jump_height
