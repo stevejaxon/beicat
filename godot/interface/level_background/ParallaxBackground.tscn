@@ -27,7 +27,7 @@ centered = false
 region_rect = Rect2( 720, 2560, 720, 5210 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-position = Vector2( 720, -1280 )
+position = Vector2( 720, -640 )
 rotation = 3.14159
 motion_scale = Vector2( 1, 0.05 )
 
