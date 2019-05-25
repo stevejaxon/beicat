@@ -38,11 +38,12 @@ func start():
 
 func _process(delta):
 	if character_status == Status.ON_GROUND:
-		_handle_player_on_the_ground(delta)
+		_handle_player_on_the_ground()
 	else:
 		_handle_player_jumping(delta)
 
-func _handle_player_on_the_ground(delta) -> void:
+func _handle_player_on_the_ground() -> void:
+	# NOOP - player automatically jumps when on the ground for now.
 	pass
 
 func _handle_player_jumping(delta) -> void:
