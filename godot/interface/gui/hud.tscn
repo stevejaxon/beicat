@@ -30,3 +30,20 @@ custom_fonts/font = ExtResource( 2 )
 text = "0"
 uppercase = true
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+editor/display_folded = true
+margin_top = 49.0
+margin_right = 710.0
+margin_bottom = 63.0
+
+[node name="FPSLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 30.0
+margin_bottom = 14.0
+text = "FPS: "
+
+[node name="FPSValue" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 34.0
+margin_right = 42.0
+margin_bottom = 14.0
+text = "0"
+
