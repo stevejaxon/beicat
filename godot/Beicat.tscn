@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Beicat.gd" type="Script" id=1]
 [ext_resource path="res://interface/gui/hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/level_background/ParallaxBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/start_level/StartLevel.gd" type="Script" id=4]
-[ext_resource path="res://assets/audio/Air.ogg" type="AudioStream" id=5]
-[ext_resource path="res://entities/levels/Ground.tscn" type="PackedScene" id=6]
-[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/gui/fonts/kenvector_future_100.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/audio/Air.ogg" type="AudioStream" id=6]
+[ext_resource path="res://entities/levels/Ground.tscn" type="PackedScene" id=7]
+[ext_resource path="res://character/Cooper.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 380, 50 )
@@ -40,8 +41,6 @@ color = Color( 0, 0, 0, 0.588235 )
 
 [node name="StartLevel" type="Control" parent="CanvasLayer"]
 pause_mode = 2
-editor/display_folded = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
@@ -49,10 +48,25 @@ script = ExtResource( 4 )
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/StartLevel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.784314 )
+color = Color( 0, 0, 0, 0 )
+
+[node name="Label" type="Label" parent="CanvasLayer/StartLevel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -201.5
+margin_top = -56.5
+margin_right = 201.5
+margin_bottom = 56.5
+custom_fonts/font = ExtResource( 5 )
+text = "JUMP!"
+align = 1
+valign = 1
+uppercase = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 
 [node name="FallDetector" type="Area2D" parent="."]
 editor/display_folded = true
@@ -65,8 +79,9 @@ collision_mask = 2
 position = Vector2( 360, 0 )
 shape = SubResource( 1 )
 
-[node name="Ground" parent="." instance=ExtResource( 6 )]
+[node name="Ground" parent="." instance=ExtResource( 7 )]
 
-[node name="Cooper" parent="." instance=ExtResource( 7 )]
+[node name="Cooper" parent="." instance=ExtResource( 8 )]
 position = Vector2( 360, 1250 )
+jump_height = -28
 

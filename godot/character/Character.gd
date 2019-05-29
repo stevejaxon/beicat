@@ -43,8 +43,8 @@ func _process(delta):
 		_handle_player_jumping(delta)
 
 func _handle_player_on_the_ground() -> void:
-	# NOOP - player automatically jumps when on the ground for now.
-	pass
+	previous_mouse_x_position = SCREEN_WIDTH/2
+	_face_pointer()
 
 func _handle_player_jumping(delta) -> void:
 	# Apply the gravity
@@ -54,14 +54,10 @@ func _handle_player_jumping(delta) -> void:
 		$Sprite.play("falling")
 		character_status = Status.FALLING
 	
-	var pointer_position = get_global_mouse_position()
-	# ensure that the animated sprite is looking in the correct direction
-	if pointer_position.x < previous_mouse_x_position:
-		$Sprite.flip_h = true
-	elif pointer_position.x > previous_mouse_x_position:
-		$Sprite.flip_h = false
+	_face_pointer()
 	
 	# ensure the character does not go off of the screen
+	var pointer_position = get_global_mouse_position()
 	var remaining_x_distance = clamp(pointer_position.x, 0, SCREEN_WIDTH) - position.x
 	speed_x = HORIZONTAL_SPEED * delta * remaining_x_distance
 	previous_mouse_x_position = pointer_position.x
@@ -80,6 +76,14 @@ func _jump():
 	$Sprite.play("jumping")
 	speed_y = jump_height
 	character_status = Status.JUMPING
+
+func _face_pointer():
+	var pointer_position = get_global_mouse_position()
+	# ensure that the animated sprite is looking in the correct direction
+	if pointer_position.x < previous_mouse_x_position:
+		$Sprite.flip_h = true
+	elif pointer_position.x > previous_mouse_x_position:
+		$Sprite.flip_h = false
 
 func platform_left_game(platform: Platform) -> void:
 	if platform == null || ! platform.get_collision_layer_bit(PLATFORM_COLLISION_LAYER_BIT):

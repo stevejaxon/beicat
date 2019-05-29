@@ -4,7 +4,7 @@ signal level_load_completed
 
 const SCREEN_HEIGHT: int = 1280
 const MAX_LEVELS_PER_DIFFICULTY_STAGE: int = 10
-const NUM_SUCCESSFUL_JUMPS_BEFORE_REMOVING_GROUND: int = 3
+const NUM_SUCCESSFUL_JUMPS_BEFORE_REMOVING_GROUND: int = 2
 
 var level_loader: LevelLoader = LevelLoader.new();
 var last_loaded_platform
