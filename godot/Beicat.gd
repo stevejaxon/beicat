@@ -19,6 +19,7 @@ func _ready():
 	assert($FallDetector.connect("body_exited", self, "gameOver") == 0)
 	assert($Cooper.connect("free_falling", self, "gameOver") == 0)
 	assert(self.connect("level_load_completed", $CanvasLayer/StartLevel, "level_loaded") == 0)
+	assert($Cooper.connect("restart_level", $CanvasLayer/StartLevel, "level_loaded") == 0)
 	assert($CanvasLayer/StartLevel.connect("level_started", self, "_play_level_music") == 0)
 	assert($CanvasLayer/StartLevel.connect("level_started", $Cooper, "start") == 0)
 	assert(global_variables.connect("score_updated", $hud, "updateScore") == 0)
@@ -69,7 +70,8 @@ func _calculate_number_of_levels_per_stage(stage: int) -> int:
 	return int(min(0.66*stage + 2, MAX_LEVELS_PER_DIFFICULTY_STAGE))
 
 func _play_level_music() -> void:
-	$AudioStreamPlayer.play()
+	if not $AudioStreamPlayer.is_playing():
+		$AudioStreamPlayer.play()
 
 func gameOver(area: Area2D) -> void:
 	assert(get_tree().change_scene("res://interface/game_over/GameOverScreen.tscn") == 0)

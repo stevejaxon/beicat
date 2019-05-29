@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal free_falling
+signal restart_level
 
 enum Status {ON_GROUND, JUMPING, FALLING}
 
@@ -31,7 +32,6 @@ func _ready():
 		set_process(false)
 	else:
 		set_process(true)
-		$Sprite.play("idle")
 
 func start():
 	_jump()
@@ -43,6 +43,7 @@ func _process(delta):
 		_handle_player_jumping(delta)
 
 func _handle_player_on_the_ground() -> void:
+	$Sprite.play("idle")
 	previous_mouse_x_position = SCREEN_WIDTH/2
 	_face_pointer()
 
@@ -62,7 +63,13 @@ func _handle_player_jumping(delta) -> void:
 	speed_x = HORIZONTAL_SPEED * delta * remaining_x_distance
 	previous_mouse_x_position = pointer_position.x
 	
-	move_and_collide(Vector2(speed_x, speed_y))
+	var collision = move_and_collide(Vector2(speed_x, speed_y))
+	# If the player has landed back on the floor after the initial jump
+	# Should not happen often - ground disappears after the player has landed on a small number of platforms.
+	if collision != null:
+		character_status = Status.ON_GROUND
+		speed_y = 0.0
+		emit_signal("restart_level")
 
 func landed_on(platform: Platform) -> void:
 	if platform == null || ! platform.get_collision_layer_bit(PLATFORM_COLLISION_LAYER_BIT):

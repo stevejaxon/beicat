@@ -8,6 +8,7 @@ func _input(event):
 		set_process_input(false)
 
 func level_loaded() -> void:
+	set_process_input(true)
 	visible = true
 
 func _start_level() -> void:
