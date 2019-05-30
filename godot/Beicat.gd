@@ -27,7 +27,7 @@ func _ready():
 	emit_signal("level_load_completed")
 
 func _load_level() -> void:
-	var platformsData = level_loader.load("data", difficulty_stage)
+	var platformsData = level_loader.load("data", difficulty_stage, 0.05)
 	var y_offset = 0
 	if last_loaded_platform != null:
 		y_offset = SCREEN_HEIGHT - last_loaded_platform.position.y

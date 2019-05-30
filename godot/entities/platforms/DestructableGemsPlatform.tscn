@@ -5,8 +5,8 @@
 [ext_resource path="res://assets/audio/122126__zimbot__thud-4-dry.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 15.0
-height = 2.0
+radius = 150.0
+height = 0.5
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.225, 1 )
@@ -15,10 +15,11 @@ colors = PoolColorArray( 1, 0.431373, 0.443137, 1, 1, 0.752941, 0.627451, 1 )
 [node name="DestructableGemPlatform" index="0" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2( 0.3, 0.3 )
 shape = SubResource( 1 )
 
 [node name="platformDiamondExplosion" parent="." index="2"]

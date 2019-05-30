@@ -4,6 +4,8 @@ extends "res://entities/platforms/Platform.gd"
 const SPRITE_RESOURCE_BASE_PATH: String = "res://assets/platforms/"
 const SPRITE_RESOURCE_BASE_NAME: String = "gem_"
 const SPRITE_EXTENSION: String = ".png"
+const GEMS_LARGEST_TRANSFORM_SIZE: float = 0.3
+const GEMS_SMALLEST_TRANSFORM_SIZE: float = 0.05
 
 var EXPLOSION_COLOR_MAP = {
 	gem_type.AMETHYST: ["#b427f1", "#ffa8ec"],
@@ -26,6 +28,14 @@ func changeGemType(newGemType: int) -> void:
 	PlatformGemType = newGemType
 	$Sprite.texture = load(_getGemSprite(newGemType))
 	_changeExplosionColor(newGemType)
+
+# The size is the relative to the original sprite's size (which is currently very large)
+# newSize updates both the Sprite and CollisionShape2D's transform's scale (x and y) property.
+func changeGemSize(newSize: float) -> void:
+	if newSize <= GEMS_LARGEST_TRANSFORM_SIZE and newSize >= GEMS_SMALLEST_TRANSFORM_SIZE:
+		var newScale = Vector2(newSize, newSize)
+		$Sprite.set_scale(newScale)
+		$CollisionShape2D.set_scale(newScale)
 
 func _getGemSprite(gemType: int) -> String:
 	return SPRITE_RESOURCE_BASE_PATH + SPRITE_RESOURCE_BASE_NAME + String(gemType) + SPRITE_EXTENSION
