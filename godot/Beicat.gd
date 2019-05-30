@@ -6,6 +6,20 @@ const SCREEN_HEIGHT: int = 1280
 const MAX_LEVELS_PER_DIFFICULTY_STAGE: int = 10
 const NUM_SUCCESSFUL_JUMPS_BEFORE_REMOVING_GROUND: int = 2
 
+var STAGE_TO_PLATFORM_SIZE_MAP = {
+	0: 0.3,
+	1: 0.275,
+	2: 0.25,
+	3: 0.225,
+	4: 0.2,
+	5: 0.175,
+	6: 0.15,
+	7: 0.1,
+	8: 0.075,
+	9: 0.06,
+	10: 0.05
+}
+
 var level_loader: LevelLoader = LevelLoader.new();
 var last_loaded_platform
 var difficulty_stage: int = 0
@@ -27,7 +41,7 @@ func _ready():
 	emit_signal("level_load_completed")
 
 func _load_level() -> void:
-	var platformsData = level_loader.load("data", difficulty_stage, 0.05)
+	var platformsData = level_loader.load("data", difficulty_stage, _get_platform_size())
 	var y_offset = 0
 	if last_loaded_platform != null:
 		y_offset = SCREEN_HEIGHT - last_loaded_platform.position.y
@@ -60,6 +74,8 @@ func _handle_platform_landed_on(stage: int, level_id: int) -> void:
 			stage_progress = 0
 		else:
 			stage_progress += 1
+		prints("Difficulty Stage: ", difficulty_stage)
+		prints("Stage progress: ", stage_progress)
 		_load_level()
 
 func _calculate_score_for_landing_on_platform(stage: int) -> int:
@@ -72,6 +88,14 @@ func _calculate_number_of_levels_per_stage(stage: int) -> int:
 func _play_level_music() -> void:
 	if not $AudioStreamPlayer.is_playing():
 		$AudioStreamPlayer.play()
+
+func _get_platform_size() -> float:
+	if difficulty_stage < 0:
+		return STAGE_TO_PLATFORM_SIZE_MAP.get(0)
+	elif not STAGE_TO_PLATFORM_SIZE_MAP.has(difficulty_stage):
+		return STAGE_TO_PLATFORM_SIZE_MAP.get(10)
+	else:
+		return STAGE_TO_PLATFORM_SIZE_MAP.get(difficulty_stage)
 
 func gameOver(area: Area2D) -> void:
 	assert(get_tree().change_scene("res://interface/game_over/GameOverScreen.tscn") == 0)
