@@ -10,14 +10,18 @@ var STAGE_TO_PLATFORM_SIZE_MAP = {
 	0: 0.3,
 	1: 0.275,
 	2: 0.25,
-	3: 0.225,
-	4: 0.2,
-	5: 0.175,
-	6: 0.15,
-	7: 0.1,
-	8: 0.075,
-	9: 0.06,
-	10: 0.05
+	3: 0.25,
+	4: 0.225,
+	5: 0.2,
+	6: 0.2,
+	7: 0.175,
+	8: 0.15,
+	9: 0.15,
+	10: 0.1,
+	11: 0.1,
+	12: 0.075,
+	13: 0.06,
+	14: 0.05
 }
 
 var level_loader: LevelLoader = LevelLoader.new();
@@ -74,8 +78,6 @@ func _handle_platform_landed_on(stage: int, level_id: int) -> void:
 			stage_progress = 0
 		else:
 			stage_progress += 1
-		prints("Difficulty Stage: ", difficulty_stage)
-		prints("Stage progress: ", stage_progress)
 		_load_level()
 
 func _calculate_score_for_landing_on_platform(stage: int) -> int:
@@ -83,7 +85,7 @@ func _calculate_score_for_landing_on_platform(stage: int) -> int:
 	return stage*stage - stage + 1;
 
 func _calculate_number_of_levels_per_stage(stage: int) -> int:
-	return int(min(0.66*stage + 2, MAX_LEVELS_PER_DIFFICULTY_STAGE))
+	return int(min(0.66*stage + 3, MAX_LEVELS_PER_DIFFICULTY_STAGE))
 
 func _play_level_music() -> void:
 	if not $AudioStreamPlayer.is_playing():
@@ -93,7 +95,7 @@ func _get_platform_size() -> float:
 	if difficulty_stage < 0:
 		return STAGE_TO_PLATFORM_SIZE_MAP.get(0)
 	elif not STAGE_TO_PLATFORM_SIZE_MAP.has(difficulty_stage):
-		return STAGE_TO_PLATFORM_SIZE_MAP.get(10)
+		return STAGE_TO_PLATFORM_SIZE_MAP.get(STAGE_TO_PLATFORM_SIZE_MAP.size()-1)
 	else:
 		return STAGE_TO_PLATFORM_SIZE_MAP.get(difficulty_stage)
 
