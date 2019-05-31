@@ -44,7 +44,7 @@ func _process(delta):
 
 func _handle_player_on_the_ground() -> void:
 	$Sprite.play("idle")
-	previous_mouse_x_position = SCREEN_WIDTH/2
+	previous_mouse_x_position = SCREEN_WIDTH/2.0
 	_face_pointer()
 
 func _handle_player_jumping(delta) -> void:

@@ -45,7 +45,7 @@ func _ready():
 	emit_signal("level_load_completed")
 
 func _load_level() -> void:
-	var platformsData = level_loader.load("data", difficulty_stage, _get_platform_size())
+	var platformsData = level_loader.load(difficulty_stage, _get_platform_size())
 	var y_offset = 0
 	if last_loaded_platform != null:
 		y_offset = SCREEN_HEIGHT - last_loaded_platform.position.y
@@ -99,5 +99,6 @@ func _get_platform_size() -> float:
 	else:
 		return STAGE_TO_PLATFORM_SIZE_MAP.get(difficulty_stage)
 
+#warning-ignore:unused_argument
 func gameOver(area: Area2D) -> void:
 	assert(get_tree().change_scene("res://interface/game_over/GameOverScreen.tscn") == 0)
